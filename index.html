@@ -9,581 +9,101 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream:        #FBF4F7;
-      --dark:         #1A1A1A;
-      --accent:       #C04E72;
-      --accent-light: #F2D5DF;
-      --mid:          #7A6470;
-      --white:        #FFFFFF;
-      --card-bg:      #FFFFFF;
+      --cream: #FBF4F7; --dark: #1A1A1A; --accent: #C04E72;
+      --accent-light: #F2D5DF; --mid: #7A6470; --white: #FFFFFF; --card-bg: #FFFFFF;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── NAV ─────────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 64px;
-      background: rgba(251, 244, 247, 0.90);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(192, 78, 114, 0.08);
-    }
-
-    .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 21px;
-      color: var(--dark);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
+    body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--dark); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 22px 64px; background: rgba(251,244,247,0.90); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(192,78,114,0.08); }
+    .nav-logo { font-family: 'Playfair Display', serif; font-size: 21px; color: var(--dark); text-decoration: none; letter-spacing: -0.02em; }
     .nav-logo span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      color: var(--mid);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { color: var(--mid); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--dark); }
-
-    .nav-cta {
-      background: var(--dark);
-      color: var(--white) !important;
-      padding: 11px 26px;
-      border-radius: 100px;
-      font-size: 14px !important;
-      font-weight: 500 !important;
-      transition: background 0.2s, transform 0.15s !important;
-    }
-    .nav-cta:hover {
-      background: var(--accent) !important;
-      color: var(--white) !important;
-      transform: translateY(-1px);
-    }
-
-    /* ─── HERO ────────────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 130px 64px 80px;
-      display: grid;
-      grid-template-columns: 1fr 480px;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 7px 16px;
-      border-radius: 100px;
-      margin-bottom: 28px;
-    }
-    .hero-tag::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(44px, 5.5vw, 72px);
-      line-height: 1.08;
-      letter-spacing: -0.03em;
-      margin-bottom: 26px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--mid);
-      max-width: 460px;
-      line-height: 1.75;
-      margin-bottom: 44px;
-    }
-
-    .hero-actions {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--accent);
-      color: var(--white);
-      padding: 17px 34px;
-      border-radius: 100px;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(192, 78, 114, 0.32);
-    }
-    .btn-primary .arrow { transition: transform 0.2s; }
-    .btn-primary:hover .arrow { transform: translateX(4px); }
-
-    .btn-ghost {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--mid);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-cta { background: var(--dark); color: var(--white) !important; padding: 11px 26px; border-radius: 100px; font-size: 14px !important; font-weight: 500 !important; transition: background 0.2s, transform 0.15s !important; }
+    .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; transform: translateY(-1px); }
+    .hero { min-height: 100vh; max-width: 1240px; margin: 0 auto; padding: 130px 64px 80px; display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--accent-light); color: var(--accent); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 16px; border-radius: 100px; margin-bottom: 28px; }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(44px, 5.5vw, 72px); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 26px; }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub { font-size: 18px; color: var(--mid); max-width: 460px; line-height: 1.75; margin-bottom: 44px; }
+    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: var(--white); padding: 17px 34px; border-radius: 100px; font-size: 15px; font-weight: 500; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(192,78,114,0.32); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: var(--mid); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
     .btn-ghost:hover { color: var(--dark); }
-
-    /* Photo frame */
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .photo-frame {
-      width: 440px;
-      height: 520px;
-      border-radius: 220px 220px 180px 180px;
-      overflow: hidden;
-      background: var(--accent-light);
-      position: relative;
-      flex-shrink: 0;
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(160deg, var(--accent-light) 0%, #e8bfcc 100%);
-    }
-    .photo-placeholder-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 100px;
-      color: rgba(192, 78, 114, 0.3);
-      line-height: 1;
-    }
-
-    /* ─── LOGO STRIP ──────────────────────────────────────── */
-    .logos-strip {
-      background: var(--dark);
-      padding: 36px 64px;
-    }
-    .logos-strip-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0;
-    }
-    .logos-label {
-      font-size: 11px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      white-space: nowrap;
-      margin-right: 48px;
-    }
-    .logos-list {
-      display: flex;
-      align-items: center;
-      gap: 48px;
-      flex-wrap: wrap;
-    }
-    .logo-name {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      transition: color 0.2s;
-    }
+    .hero-visual { display: flex; justify-content: center; align-items: center; }
+    .photo-frame { width: 440px; height: 520px; border-radius: 220px 220px 180px 180px; overflow: hidden; background: var(--accent-light); position: relative; flex-shrink: 0; }
+    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .logos-strip { background: var(--dark); padding: 36px 64px; }
+    .logos-strip-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+    .logos-label { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); white-space: nowrap; margin-right: 48px; }
+    .logos-list { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+    .logo-name { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.45); transition: color 0.2s; }
     .logo-name:hover { color: rgba(255,255,255,0.8); }
-
-    /* ─── SERVICES ────────────────────────────────────────── */
-    .services {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 120px 64px;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    .section-heading {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 4vw, 50px);
-      line-height: 1.12;
-      letter-spacing: -0.025em;
-      margin-bottom: 64px;
-      max-width: 560px;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 52px 44px;
-      cursor: default;
-      transition: transform 0.25s, box-shadow 0.25s;
-      border: 1px solid rgba(192, 78, 114, 0.07);
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 48px rgba(192, 78, 114, 0.1);
-    }
-
-    .service-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 52px;
-      font-weight: 400;
-      color: var(--accent-light);
-      line-height: 1;
-      margin-bottom: 24px;
-    }
-
-    .service-card h3 {
-      font-size: 19px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 12px;
-    }
-    .service-card p {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-
-    /* ─── ABOUT ───────────────────────────────────────────── */
-    .about {
-      background: var(--dark);
-      padding: 120px 64px;
-    }
-    .about-inner {
-      max-width: 1240px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 400px;
-      gap: 100px;
-      align-items: center;
-    }
-
+    .services { max-width: 1240px; margin: 0 auto; padding: 120px 64px; }
+    .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 50px); line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 64px; max-width: 560px; }
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .service-card { background: var(--card-bg); border-radius: 28px; padding: 52px 44px; cursor: default; transition: transform 0.25s, box-shadow 0.25s; border: 1px solid rgba(192,78,114,0.07); }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 20px 48px rgba(192,78,114,0.1); }
+    .service-num { font-family: 'Playfair Display', serif; font-size: 52px; font-weight: 400; color: var(--accent-light); line-height: 1; margin-bottom: 24px; }
+    .service-card h3 { font-size: 19px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 12px; }
+    .service-card p { font-size: 15px; color: var(--mid); line-height: 1.75; }
+    .about { background: var(--dark); padding: 120px 64px; }
+    .about-inner { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: 1fr 400px; gap: 100px; align-items: center; }
     .about .eyebrow { color: var(--accent); }
-
-    .about .section-heading {
-      color: var(--white);
-      margin-bottom: 28px;
-    }
-
-    .about-bio {
-      color: rgba(255,255,255,0.65);
-      font-size: 17px;
-      line-height: 1.85;
-      margin-bottom: 20px;
-    }
-
-    .about-credential {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 8px;
-      color: rgba(255,255,255,0.4);
-      font-size: 13px;
-      font-style: italic;
-    }
-    .about-credential::before {
-      content: '✦';
-      font-style: normal;
-      color: var(--accent);
-      font-size: 10px;
-    }
-
-    .stats-row {
-      display: flex;
-      gap: 52px;
-      margin-top: 48px;
-      padding-top: 40px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 44px;
-      color: var(--white);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: rgba(255,255,255,0.38);
-      margin-top: 7px;
-      letter-spacing: 0.03em;
-    }
-
-    .about-photo-frame {
-      width: 380px;
-      height: 460px;
-      border-radius: 190px 190px 160px 160px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-      flex-shrink: 0;
-    }
-    .about-photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* ─── PROCESS ─────────────────────────────────────────── */
-    .process {
-      max-width: 1240px;
-      margin: 0 auto;
-      padding: 120px 64px;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 64px;
-    }
-
-    .step-card {
-      background: var(--card-bg);
-      border-radius: 28px;
-      padding: 44px 36px;
-      border: 1px solid rgba(192, 78, 114, 0.07);
-      position: relative;
-      overflow: hidden;
-    }
-    .step-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--accent);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
+    .about .section-heading { color: var(--white); margin-bottom: 28px; }
+    .about-bio { color: rgba(255,255,255,0.65); font-size: 17px; line-height: 1.85; margin-bottom: 20px; }
+    .about-credential { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; color: rgba(255,255,255,0.4); font-size: 13px; font-style: italic; }
+    .about-credential::before { content: '\u2726'; font-style: normal; color: var(--accent); font-size: 10px; }
+    .stats-row { display: flex; gap: 52px; margin-top: 48px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 44px; color: var(--white); line-height: 1; }
+    .stat-label { font-size: 12px; color: rgba(255,255,255,0.38); margin-top: 7px; letter-spacing: 0.03em; }
+    .about-photo-frame { width: 380px; height: 460px; border-radius: 190px 190px 160px 160px; overflow: hidden; background: rgba(255,255,255,0.06); flex-shrink: 0; }
+    .about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .process { max-width: 1240px; margin: 0 auto; padding: 120px 64px; }
+    .process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 64px; }
+    .step-card { background: var(--card-bg); border-radius: 28px; padding: 44px 36px; border: 1px solid rgba(192,78,114,0.07); position: relative; overflow: hidden; }
+    .step-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); opacity: 0; transition: opacity 0.25s; }
     .step-card:hover::before { opacity: 1; }
-
-    .step-badge {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 24px;
-    }
-
-    .step-card h3 {
-      font-size: 20px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      margin-bottom: 14px;
-    }
-    .step-card p {
-      font-size: 15px;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-
-    /* ─── CONTACT ─────────────────────────────────────────── */
-    .contact {
-      background: var(--accent-light);
-      padding: 120px 64px;
-    }
-    .contact-inner {
-      max-width: 680px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    .contact-inner .section-heading {
-      margin: 0 auto 16px;
-    }
-    .contact-sub {
-      font-size: 17px;
-      color: var(--mid);
-      margin-bottom: 56px;
-      line-height: 1.7;
-    }
-
+    .step-badge { width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; margin-bottom: 24px; }
+    .step-card h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 14px; }
+    .step-card p { font-size: 15px; color: var(--mid); line-height: 1.75; }
+    .contact { background: var(--accent-light); padding: 120px 64px; }
+    .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+    .contact-inner .section-heading { margin: 0 auto 16px; }
+    .contact-sub { font-size: 17px; color: var(--mid); margin-bottom: 56px; line-height: 1.7; }
     form { text-align: left; display: flex; flex-direction: column; gap: 16px; }
-
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    input, textarea {
-      width: 100%;
-      padding: 17px 22px;
-      border: 1.5px solid rgba(192, 78, 114, 0.15);
-      border-radius: 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      background: var(--white);
-      color: var(--dark);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(192, 78, 114, 0.1);
-    }
+    input, textarea { width: 100%; padding: 17px 22px; border: 1.5px solid rgba(192,78,114,0.15); border-radius: 16px; font-family: 'Inter', sans-serif; font-size: 15px; background: var(--white); color: var(--dark); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    input:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(192,78,114,0.1); }
     input::placeholder, textarea::placeholder { color: rgba(0,0,0,0.32); }
-
     textarea { height: 148px; resize: none; }
-
-    .form-submit {
-      display: flex;
-      justify-content: center;
-      margin-top: 8px;
-    }
-
-    .submit-btn {
-      background: var(--dark);
-      color: var(--white);
-      border: none;
-      padding: 17px 44px;
-      border-radius: 100px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
-      letter-spacing: 0.01em;
-    }
-    .submit-btn:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    /* ─── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background: var(--dark);
-      padding: 36px 64px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 19px;
-      color: var(--white);
-    }
+    .form-submit { display: flex; justify-content: center; margin-top: 8px; }
+    .submit-btn { background: var(--dark); color: var(--white); border: none; padding: 17px 44px; border-radius: 100px; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.01em; }
+    .submit-btn:hover { background: var(--accent); transform: translateY(-2px); }
+    footer { background: var(--dark); padding: 36px 64px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Playfair Display', serif; font-size: 19px; color: var(--white); }
     .footer-logo span { color: var(--accent); }
-
     .footer-links { display: flex; gap: 28px; }
-    .footer-links a {
-      color: rgba(255,255,255,0.45);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
+    .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
-
     .footer-copy { color: rgba(255,255,255,0.25); font-size: 12px; }
-
-    /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 980px) {
-      nav { padding: 18px 24px; }
-      .nav-links { display: none; }
-
-      .hero {
-        grid-template-columns: 1fr;
-        padding: 110px 24px 60px;
-        text-align: center;
-      }
-      .hero-sub { margin-left: auto; margin-right: auto; }
-      .hero-actions { justify-content: center; }
-      .hero-visual { display: none; }
-
-      .logos-strip { padding: 28px 24px; }
-      .logos-strip-inner { gap: 16px; }
-      .logos-label { margin-right: 16px; }
-      .logos-list { gap: 24px; }
-
-      .services, .process { padding: 80px 24px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: 1fr; }
-
-      .about { padding: 80px 24px; }
-      .about-inner { grid-template-columns: 1fr; }
-      .about-photo-frame { display: none; }
-
-      .contact { padding: 80px 24px; }
-      .form-row { grid-template-columns: 1fr; }
-
-      footer { padding: 28px 24px; flex-direction: column; gap: 20px; text-align: center; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
+      nav { padding: 18px 24px; } .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 110px 24px 60px; text-align: center; }
+      .hero-sub { margin-left: auto; margin-right: auto; } .hero-actions { justify-content: center; } .hero-visual { display: none; }
+      .logos-strip { padding: 28px 24px; } .logos-strip-inner { gap: 16px; } .logos-label { margin-right: 16px; } .logos-list { gap: 24px; }
+      .services, .process { padding: 80px 24px; } .services-grid { grid-template-columns: 1fr; } .process-steps { grid-template-columns: 1fr; }
+      .about { padding: 80px 24px; } .about-inner { grid-template-columns: 1fr; } .about-photo-frame { display: none; }
+      .contact { padding: 80px 24px; } .form-row { grid-template-columns: 1fr; }
+      footer { padding: 28px 24px; flex-direction: column; gap: 20px; text-align: center; } .footer-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
 <body>
-
-  <!-- ── NAV ─────────────────────────────────────────────── -->
   <nav>
     <a href="#" class="nav-logo">hey alexa<span>.</span></a>
     <ul class="nav-links">
@@ -593,149 +113,72 @@
       <li><a href="#contact" class="nav-cta">Let's talk</a></li>
     </ul>
   </nav>
-
-  <!-- ── HERO ─────────────────────────────────────────────── -->
   <section id="home">
     <div class="hero">
       <div class="hero-content">
         <div class="hero-tag">Growth & Product Marketing Consultant · Sydney</div>
         <h1>Marketer on paper.<br><em>Maker</em> at heart.<br>Let's build your growth.</h1>
-        <p class="hero-sub">
-          I help ambitious teams turn growth problems into clean, scalable results - drawing on 10+ years with Google, HelloFresh, and Coles Group across ANZ and Europe.
-        </p>
+        <p class="hero-sub">I help ambitious teams turn growth problems into clean, scalable results - drawing on 10+ years with Google, HelloFresh, and Coles Group across ANZ and Europe.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-primary">
-            Let's work together
-            <span class="arrow">→</span>
-          </a>
+          <a href="#contact" class="btn-primary">Let's work together <span class="arrow">→</span></a>
           <a href="#about" class="btn-ghost">Learn more ↓</a>
         </div>
       </div>
       <div class="hero-visual">
         <div class="photo-frame">
-          <!--
-            PHOTO: To add your headshot, replace this div with:
-            <img src="alexa-headshot.jpg" alt="Alexa Cojanu" />
-            Upload your photo to GoDaddy first, then link it here.
-          -->
-          <div class="photo-placeholder">
-            <span class="photo-placeholder-text">A</span>
-          </div>
+          <img src="IMG_4133.jpg" alt="Alexa Cojanu" />
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ── LOGO STRIP ────────────────────────────────────────── -->
   <div class="logos-strip">
     <div class="logos-strip-inner">
       <span class="logos-label">Previously at</span>
       <div class="logos-list">
-        <span class="logo-name">Google</span>
-        <span class="logo-name">HelloFresh</span>
-        <span class="logo-name">EveryPlate</span>
-        <span class="logo-name">Coles Group</span>
-        <span class="logo-name">72andSunny</span>
-        <span class="logo-name">Accenture</span>
+        <span class="logo-name">Google</span><span class="logo-name">HelloFresh</span>
+        <span class="logo-name">EveryPlate</span><span class="logo-name">Coles Group</span>
+        <span class="logo-name">72andSunny</span><span class="logo-name">Accenture</span>
       </div>
     </div>
   </div>
-
-  <!-- ── SERVICES ──────────────────────────────────────────── -->
   <section class="services" id="services">
     <div class="eyebrow">What I do</div>
     <h2 class="section-heading">Where I can make the biggest impact</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">01</div>
-        <h3>Growth Strategy</h3>
-        <p>Audit your current growth levers, identify the biggest opportunities, and build a prioritised roadmap that connects marketing activity to real commercial outcomes.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">02</div>
-        <h3>Acquisition & Performance</h3>
-        <p>Paid social, SEO, referral programs, and multi-channel acquisition engines built to scale - with the data infrastructure to measure what actually works.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">03</div>
-        <h3>Retention & CRM</h3>
-        <p>Reduce churn, reactivate lapsed customers, and build lifecycle campaigns that turn one-time buyers into loyal, high-value advocates.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <h3>Go-to-Market</h3>
-        <p>Launching a new product, channel, or market? I'll design the launch strategy, positioning, and execution plan so you hit the ground running.</p>
-      </div>
+      <div class="service-card"><div class="service-num">01</div><h3>Growth Strategy</h3><p>Audit your current growth levers, identify the biggest opportunities, and build a prioritised roadmap that connects marketing activity to real commercial outcomes.</p></div>
+      <div class="service-card"><div class="service-num">02</div><h3>Acquisition & Performance</h3><p>Paid social, SEO, referral programs, and multi-channel acquisition engines built to scale - with the data infrastructure to measure what actually works.</p></div>
+      <div class="service-card"><div class="service-num">03</div><h3>Retention & CRM</h3><p>Reduce churn, reactivate lapsed customers, and build lifecycle campaigns that turn one-time buyers into loyal, high-value advocates.</p></div>
+      <div class="service-card"><div class="service-num">04</div><h3>Go-to-Market</h3><p>Launching a new product, channel, or market? I'll design the launch strategy, positioning, and execution plan so you hit the ground running.</p></div>
     </div>
   </section>
-
-  <!-- ── ABOUT ──────────────────────────────────────────────── -->
   <section class="about" id="about">
     <div class="about-inner">
       <div>
         <div class="eyebrow">About me</div>
         <h2 class="section-heading">10+ years scaling brands you know</h2>
-        <p class="about-bio">
-          I'm Alexa - a Sydney-based growth and product marketing consultant with over a decade of experience scaling some of the most recognised brands across ANZ and Europe.
-        </p>
-        <p class="about-bio">
-          I've led growth strategy at HelloFresh and EveryPlate (HelloFresh Group), managed Google's advertiser portfolio in Dublin, and worked across brand strategy and business consulting at 72andSunny and Accenture.
-        </p>
-        <p class="about-bio">
-          I bring sharp analytical thinking and a hands-on, ownership mindset - equally comfortable in a spreadsheet and a boardroom. Now I take on select consulting engagements with founders and marketing teams who want to grow with intention.
-        </p>
+        <p class="about-bio">I'm Alexa - a Sydney-based growth and product marketing consultant with over a decade of experience scaling some of the most recognised brands across ANZ and Europe.</p>
+        <p class="about-bio">I've led growth strategy at HelloFresh and EveryPlate (HelloFresh Group), managed Google's advertiser portfolio in Dublin, and worked across brand strategy and business consulting at 72andSunny and Accenture.</p>
+        <p class="about-bio">I bring sharp analytical thinking and a hands-on, ownership mindset - equally comfortable in a spreadsheet and a boardroom. Now I take on select consulting engagements with founders and marketing teams who want to grow with intention.</p>
         <div class="about-credential">Startmate Women Fellow</div><br>
         <div class="about-credential">First Class Honours, Aston University</div>
         <div class="stats-row">
-          <div>
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Years in growth</div>
-          </div>
-          <div>
-            <div class="stat-num">6</div>
-            <div class="stat-label">Major brands</div>
-          </div>
-          <div>
-            <div class="stat-num">ANZ+EU</div>
-            <div class="stat-label">Markets</div>
-          </div>
+          <div><div class="stat-num">10+</div><div class="stat-label">Years in growth</div></div>
+          <div><div class="stat-num">6</div><div class="stat-label">Major brands</div></div>
+          <div><div class="stat-num">ANZ+EU</div><div class="stat-label">Markets</div></div>
         </div>
       </div>
-      <div>
-        <div class="about-photo-frame">
-          <!--
-            PHOTO: Same image as hero. Replace with:
-            <img src="alexa-headshot.jpg" alt="Alexa Cojanu" />
-          -->
-        </div>
-      </div>
+      <div><div class="about-photo-frame"><img src="IMG_4133.jpg" alt="Alexa Cojanu" /></div></div>
     </div>
   </section>
-
-  <!-- ── PROCESS ───────────────────────────────────────────── -->
   <section class="process" id="process">
     <div class="eyebrow">How I work</div>
     <h2 class="section-heading">Simple, focused, results-driven</h2>
     <div class="process-steps">
-      <div class="step-card">
-        <div class="step-badge">01</div>
-        <h3>Diagnose</h3>
-        <p>We start with an honest audit of where you are - your current channels, data, team, and the gaps holding back growth. No fluff, just clarity.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-badge">02</div>
-        <h3>Strategise</h3>
-        <p>I build a prioritised growth roadmap tailored to your stage, resources, and goals - so your team knows exactly what to do and in what order.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-badge">03</div>
-        <h3>Execute</h3>
-        <p>I work alongside your team to implement, test, and iterate - hands-on until the strategy is running smoothly and delivering real results.</p>
-      </div>
+      <div class="step-card"><div class="step-badge">01</div><h3>Diagnose</h3><p>We start with an honest audit of where you are - your current channels, data, team, and the gaps holding back growth. No fluff, just clarity.</p></div>
+      <div class="step-card"><div class="step-badge">02</div><h3>Strategise</h3><p>I build a prioritised growth roadmap tailored to your stage, resources, and goals - so your team knows exactly what to do and in what order.</p></div>
+      <div class="step-card"><div class="step-badge">03</div><h3>Execute</h3><p>I work alongside your team to implement, test, and iterate - hands-on until the strategy is running smoothly and delivering real results.</p></div>
     </div>
   </section>
-
-  <!-- ── CONTACT ────────────────────────────────────────────── -->
   <section class="contact" id="contact">
     <div class="contact-inner">
       <div class="eyebrow">Get in touch</div>
@@ -748,24 +191,17 @@
         </div>
         <input type="text" placeholder="Company or website" />
         <textarea placeholder="What are you working on? What's the challenge you're trying to solve?"></textarea>
-        <div class="form-submit">
-          <button type="submit" class="submit-btn">Send message →</button>
-        </div>
+        <div class="form-submit"><button type="submit" class="submit-btn">Send message →</button></div>
       </form>
     </div>
   </section>
-
-  <!-- ── FOOTER ──────────────────────────────────────────────── -->
   <footer>
     <div class="footer-logo">hey alexa<span>.</span></div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/alexandracojanu/" target="_blank">LinkedIn</a>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
     </div>
     <div class="footer-copy">© 2026 Alexa Cojanu</div>
   </footer>
-
 </body>
 </html>
